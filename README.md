@@ -10,4 +10,6 @@ Simulation follows very simple rules:
 This simple model yields results simmilar to those obtained by solving Lotka-Volterra equations:
 [Wikipedia](https://en.wikipedia.org/wiki/Lotka%E2%80%93Volterra_equations)
 
+Written in [Lua](https://www.lua.org/) using awesome [love2d](https://love2d.org/) framework.
+
 ![Animals in action](https://github.com/karolBak/love2d-lotek-volterra/blob/master/screen.png)
