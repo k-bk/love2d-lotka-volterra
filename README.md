@@ -1,4 +1,4 @@
-# love2d-lotek-volterra
+# love2d-lotka-volterra
 Cellural automaton for predator-prey simulation.
 Simulation follows very simple rules:
   * there are two types of agents: foxes (red) and rabbits (green)
