@@ -12,4 +12,4 @@ This simple model yields results simmilar to those obtained by solving Lotka-Vol
 
 *Written in [Lua](https://www.lua.org/) using awesome [love2d](https://love2d.org/) framework.*
 
-![Animals in action](screen.png)
+![Animals in action](lotka-volterra-animation.gif)
