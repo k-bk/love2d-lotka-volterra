@@ -1,6 +1,3 @@
--- TODO – show sliders for variables
--- TODO – read about this model
-
 local UI = require "UI"
 local size = 5
 local dir = { 
@@ -139,27 +136,6 @@ function love.load ()
 
     love.graphics.setBackgroundColor( 1, 1, 1 )
 
-    UI:addScene( 20, 20 )
-    UI:horizontal(
-        UI:addButton( "Start", startSimulation ),
-        UI:addButton( "Pause", pauseSimulation )
-    )
-    UI:vertical(
-        UI:addLabel {""},
-        UI:addLabel {"Speed: "},
-        UI:addSlider( 1, 60, speed ),
-        UI:addLabel {"Initial percentage of rabbits: "},
-        UI:addSlider( 0, 0.5, rabbit_init ),
-        UI:addLabel {"Initial percentage of foxes: "},
-        UI:addSlider( 0, 0.5, fox_init ),
-        UI:addLabel {"Chance of starving fox death: "},
-        UI:addSlider( 0, 0.3, fox_death ),
-        UI:addLabel {"Chance of fox birth: "},
-        UI:addSlider( 0, 0.3, fox_birth ),
-        UI:addLabel {"Chance of rabbit birth: "},
-        UI:addSlider( 0, 0.3, rabbit_birth )
-    )
-
     timer = 0
 end
 
@@ -184,14 +160,31 @@ function love.draw ()
     drawGrid( grid )
     love.graphics.setCanvas()
 
-    local margin = 100
+    local margin = 10
     love.graphics.draw( 
         grid.canvas, 
         love.graphics.getWidth() - grid.canvas:getWidth() - margin,
         margin
         )
-    
-    UI:draw()
+
+    UI.draw { x = margin, y = margin,
+        UI.horizontal {
+            UI.button( "Start", startSimulation ),
+            UI.button( "Pause", pauseSimulation ), 
+        },
+        UI.label {"Speed: "},
+        UI.slider( 1, 60, speed ),
+        UI.label {"Initial percentage of rabbits: "},
+        UI.slider( 0, 0.5, rabbit_init ),
+        UI.label {"Initial percentage of foxes: "},
+        UI.slider( 0, 0.5, fox_init ),
+        UI.label {"Chance of starving fox death: "},
+        UI.slider( 0, 0.3, fox_death ),
+        UI.label {"Chance of fox birth: "},
+        UI.slider( 0, 0.3, fox_birth ),
+        UI.label {"Chance of rabbit birth: "},
+        UI.slider( 0, 0.3, rabbit_birth ),
+     }
 end
 
 function drawGrid ()
@@ -227,16 +220,16 @@ end
 
 function love.mousepressed ( x, y, button )
     if button == 1 then
-        UI:mousePressed({x = x, y = y})
+        UI.mousepressed {x = x, y = y}
     end
 end
 
 function love.mousereleased ( x, y, button )
     if button == 1 then
-        UI:mouseReleased({x = x, y = y})
+        UI.mousereleased {x = x, y = y}
     end
 end
 
 function love.mousemoved ( x, y )
-    UI:mouseMoved({x = x, y = y})
+    UI.mousemoved {x = x, y = y}
 end
