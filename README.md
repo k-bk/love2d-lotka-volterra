@@ -14,6 +14,6 @@ This simple model yields results simmilar to those obtained by solving Lotka-Vol
 To run the simulation on linux type `make` in cloned repository.
 It will automatically download `love` executable.
 
-*Written in [Lua](https://www.lua.org/) using awesome [love2d](https://love2d.org/) framework.*
-
 ![Animals in action](lotka-volterra-animation.gif)
+
+*Written in [Lua](https://www.lua.org/) using awesome [love2d](https://love2d.org/) framework.*
